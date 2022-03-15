@@ -1,1 +1,110 @@
-https://www.figma.com/file/fzszOF4P5lXDrFv2HZeGNj/Trabalho-Mobile?node-id=0%3A1
+<!-- Login -->
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/login"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:clipToOutline="true"
+android:background="@drawable/login"
+android:elevation="4dp"
+ />
+
+
+<!-- drawable/login.xml -->
+<vector
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:aapt="http://schemas.android.com/aapt"
+android:width="360dp"
+android:height="800dp"
+android:viewportWidth="360"
+android:viewportHeight="800"
+ >
+
+<group>
+
+<clip-path
+android:pathData="M30 0H330C346.569 0 360 13.4315 360 30V770C360 786.569 346.569 800 330 800H30C13.4315 800 0 786.569 0 770V30C0 13.4315 13.4315 0 30 0Z"
+/>
+
+<path
+android:pathData="M0 0V800H360V0"
+android:fillColor="#FFFFFF"
+/>
+
+</group>
+
+</vector>
+
+<!-- Recuperação -->
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/recupera_o"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:clipToOutline="true"
+android:background="@drawable/recupera_o"
+android:elevation="4dp"
+ />
+
+
+<!-- drawable/recupera_o.xml -->
+<vector
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:aapt="http://schemas.android.com/aapt"
+android:width="360dp"
+android:height="800dp"
+android:viewportWidth="360"
+android:viewportHeight="800"
+ >
+
+<group>
+
+<clip-path
+android:pathData="M30 0H330C346.569 0 360 13.4315 360 30V770C360 786.569 346.569 800 330 800H30C13.4315 800 0 786.569 0 770V30C0 13.4315 13.4315 0 30 0Z"
+/>
+
+<path
+android:pathData="M0 0V800H360V0"
+android:fillColor="#FFFFFF"
+/>
+
+</group>
+
+</vector>
+
+<!-- Senha -->
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+android:id="@+id/senha"
+android:layout_width="fill_parent"
+android:layout_height="fill_parent"
+android:clipToOutline="true"
+android:background="@drawable/senha"
+android:elevation="4dp"
+ />
+
+
+<!-- drawable/senha.xml -->
+<vector
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:aapt="http://schemas.android.com/aapt"
+android:width="360dp"
+android:height="800dp"
+android:viewportWidth="360"
+android:viewportHeight="800"
+ >
+
+<group>
+
+<clip-path
+android:pathData="M30 0H330C346.569 0 360 13.4315 360 30V770C360 786.569 346.569 800 330 800H30C13.4315 800 0 786.569 0 770V30C0 13.4315 13.4315 0 30 0Z"
+/>
+
+<path
+android:pathData="M0 0V800H360V0"
+android:fillColor="#FFFFFF"
+/>
+
+</group>
+
+</vector>
