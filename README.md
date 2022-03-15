@@ -1,4 +1,4 @@
-# Trabalho-Mobile
+# Trabalho Mobile
 Trabalho Mobile Faculdade
 
 Fase 01 - Protótipo (Figma) 3,0 pontos
