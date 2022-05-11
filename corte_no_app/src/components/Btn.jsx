@@ -25,6 +25,7 @@ const styles = StyleSheet.create({
   },
     botaotexto: {
     fontSize: 18,
+    fontWeight: 'bold'
   },
 })
 
