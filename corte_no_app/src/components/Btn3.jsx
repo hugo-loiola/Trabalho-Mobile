@@ -1,11 +1,11 @@
 import React from 'react'
 import {TouchableOpacity, StyleSheet, Text} from 'react-native'
 
-const Btn3 = ({onPress , texto, texto2}) => {
+const Btn3 = ({onPress , texto1, texto2}) => {
   return(
-    <TouchableOpacity onPress={onPress} style={styles.textoncadastro}>
+    <TouchableOpacity onPress={onPress}>
       <Text style={styles.textoncadastro}>
-        {texto}   
+        {texto1}   
           <Text style={{color: '#FF5C00'}}>{texto2}</Text>
       </Text>
     </TouchableOpacity>
