@@ -15,12 +15,9 @@ const Btn3 = ({onPress , texto, texto2}) => {
 const styles = StyleSheet.create({
   textoncadastro: {
     color: 'white',
-    justifyContent:'center',
-    alignItems:'center',
-    flex:1,
+    textAlign: 'center',
     marginTop: 50,
   },
-
 })
 
 export default Btn3
