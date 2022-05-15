@@ -8,7 +8,7 @@ const Pesquisa = () => {
 
 	return (
 		<Searchbar
-			style={{marginTop: "10%",backgroundColor:"black",}}
+			style={{backgroundColor:"black",}}
 			inputStyle={{color: "orange"}}
 			placeholder="Pesquisa"
 			placeholderTextColor={"orange"}
