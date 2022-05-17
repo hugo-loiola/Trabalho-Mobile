@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   Image,
@@ -12,6 +12,8 @@ import {
   Alert,
   Picker,
   KeyboardAvoidingView,
+  Animated,
+  Keyboard,
 } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
@@ -57,6 +59,43 @@ const schema = yup.object({
 
 const Cadastro = () => {
 
+  const [logo] = useState(new Animated.ValueXY({x: 150, y: 213}));
+
+  useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', keyboardDidShow);
+    const keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', keyboardDidHide)
+  })
+
+  function keyboardDidShow(){
+    Animated.parallel([
+      Animated.timing(logo.x, {
+        toValue: 80,
+        duration: 100,
+        useNativeDriver: false
+      }),
+      Animated.timing(logo.y, {
+        toValue: 113,
+        duration: 100,
+        useNativeDriver: false
+      })
+    ]).start();
+  }
+
+  function keyboardDidHide(){
+    Animated.parallel([
+      Animated.timing(logo.x, {
+        toValue: 150,
+        duration: 100,
+        useNativeDriver: false,
+      }),
+      Animated.timing(logo.y, {
+        toValue: 213,
+        duration: 100,
+        useNativeDriver: false,
+      })
+    ]).start();
+  }  
+
   const [selectedValue, setSelectedValue] = useState("pergunta1");
 
   const [hidePass, setHidePass] = useState(true);
@@ -91,8 +130,12 @@ const Cadastro = () => {
         <ScrollView>
 
           <View style={{paddingTop: 30}}>
-            <Image
-              style={styles.logo}
+            <Animated.Image
+              style={{
+                width: logo.x,
+                height: logo.y,
+                alignSelf: 'center',
+                }}
               source={require("../assets/Logo.png")}
             />
           </View>
