@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   View,
   KeyboardAvoidingView,
@@ -11,6 +11,8 @@ import {
   TouchableWithoutFeedback,
   Alert,
   ScrollView,
+  Animated,
+  Keyboard
 } from "react-native";
 import { useForm, Controller } from "react-hook-form";
 import * as yup from "yup";
@@ -28,6 +30,43 @@ const schema = yup.object({
 });
 
 const Login = () => {
+
+  const [logo] = useState(new Animated.ValueXY({x: 200, y: 284}));
+
+  useEffect(() => {
+    const keyboardDidShowListener = Keyboard.addListener('keyboardDidShow', keyboardDidShow);
+    const keyboardDidHideListener = Keyboard.addListener('keyboardDidHide', keyboardDidHide)
+  })
+
+  function keyboardDidShow(){
+    Animated.parallel([
+      Animated.timing(logo.x, {
+        toValue: 80,
+        duration: 100,
+        useNativeDriver: false
+      }),
+      Animated.timing(logo.y, {
+        toValue: 113,
+        duration: 100,
+        useNativeDriver: false
+      })
+    ]).start();
+  }
+
+  function keyboardDidHide(){
+    Animated.parallel([
+      Animated.timing(logo.x, {
+        toValue: 200,
+        duration: 100,
+        useNativeDriver: false,
+      }),
+      Animated.timing(logo.y, {
+        toValue: 284,
+        duration: 100,
+        useNativeDriver: false,
+      })
+    ]).start();
+  }
 
   const [hidePass, setHidePass] = useState(true);
 
@@ -59,8 +98,13 @@ const Login = () => {
 
         <ScrollView>
 
-          <Image
-            style={styles.logo}
+          <Animated.Image
+            style={{
+              width: logo.x,
+              height: logo.y,
+              alignSelf: 'center',
+              marginTop: 30
+              }}
             source={require("../assets/Logo.png")}
           />
 
@@ -132,7 +176,7 @@ const Login = () => {
             <Text style={styles.botaotexto2}>ESQUECI A SENHA</Text>
           </TouchableOpacity>
 
-          <View style={{flexDirection: 'row', justifyContent: 'center', marginTop: 50, marginHorizontal: 40}}>
+          <View style={{flexDirection: 'row', marginTop: 40, marginHorizontal: 40}}>
             <Text style={styles.textoncadastro}>não tem cadastro?</Text>
             <TouchableOpacity /* onPress para CADASTRAR */>
               <Text style={styles.textoInscrevase}>inscreva-se</Text>
@@ -151,8 +195,9 @@ const Login = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    justifyContent: "center",
     padding: 16,
+    alignItems: 'center'
   },
   inputContainer: {
     borderColor: '#FF5C00',
@@ -168,12 +213,6 @@ const styles = StyleSheet.create({
   iconHide: {
     alignSelf: 'center',
     marginLeft: 10,
-  },
-  logo: {
-    width: 200,
-    height: 300,
-    alignSelf: 'center',
-    marginTop: 5,
   },
   textoncadastro: {
     color: 'white',
