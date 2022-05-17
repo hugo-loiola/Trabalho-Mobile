@@ -175,19 +175,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  barbeariaNome: {
-    fontSize: 24,
-    color: '#FF5C00',
-    textAlign: 'center',
-    fontVariant: ['small-caps'],
-    fontWeight: 'normal',
-    flex: 1,
-  },
-  barbeariaLogo: {
-    width: 120,
-    height: 120,
-    borderRadius: 20,
-  },
   servico: {
     fontSize: 18,
     color: 'black',
