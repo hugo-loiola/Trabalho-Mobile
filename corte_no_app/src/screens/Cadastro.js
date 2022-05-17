@@ -45,13 +45,8 @@ const schema = yup.object({
     .required('Senha obrigatória'),
   confirmarSenha: yup
     .string()
-    .min(8, ({ min }) => `Senha deve conter no mínimo ${min} caracteres`)
-    .matches(/\w*[a-z]\w*/, 'Senha deve conter letra minúscula')
-    .matches(/\w*[A-Z]\w*/,  'Senha deve conter letra maiúscula')
-    .matches(/\d/, 'Senha deve conter numeral')
-    .matches(/[!@#$%^&*()\-_"=+{}; :,<.>]/, 'Senha deve conter caracter especial')
     .oneOf([yup.ref('senha'), null], 'Confirmação não similar a senha')
-    .required('Senha obrigatória'),
+    .required('Confirmação de senha obrigatória'),
   perguntaSecreta: yup
     .string()
     .required('Pergunta secreta deve ser respondida'),
