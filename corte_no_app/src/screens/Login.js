@@ -212,7 +212,7 @@ const styles = StyleSheet.create({
   },
   iconHide: {
     alignSelf: 'center',
-    marginLeft: 10,
+    marginRight: 10,
   },
   textoncadastro: {
     color: 'white',
