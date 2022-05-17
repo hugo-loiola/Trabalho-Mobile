@@ -95,7 +95,7 @@ const Servicos = () => {
           backgroundColor: '#00000099',
           height: scrollY.interpolate({
             inputRange:[10, 160, 185],
-            outputRange: [176, 100, 100],
+            outputRange: [176, 100, 90],
             extrapolate: 'clamp'
           }),
         }}
@@ -103,11 +103,11 @@ const Servicos = () => {
         <Animated.Image
           style={{
             height: scrollY.interpolate({
-             inputRange:[0, 60, 120],
+             inputRange:[1, 75, 170],
              outputRange: [120, 60, 0] 
             }),
             width: scrollY.interpolate({
-              inputRange:[0, 60, 120],
+              inputRange:[1, 75, 170],
               outputRange: [120, 60, 0] 
               }),
             opacity: scrollY.interpolate({
@@ -120,17 +120,33 @@ const Servicos = () => {
           source={require("../assets/barbeariaExemplo.jpg")}
           resizeMode='contain'
         />
-        <Text style={{
-            fontSize: 24,
-            color: '#FF5C00',
-            textAlign: 'center',
-            fontVariant: ['small-caps'],
-            fontWeight: 'normal',
-            flex: 1,
-          }}
-        >
-          Barbearia Exemplo
-        </Text>
+        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center', flexDirection: 'column'}}>
+          <Text style={{
+              fontSize: 24,
+              color: '#FF5C00',
+              fontVariant: ['small-caps'],
+              fontWeight: 'normal',
+            }}
+          >
+            Barbearia Exemplo
+          </Text>
+          <Animated.Text style={{
+              fontSize: scrollY.interpolate({
+                inputRange:[1, 75, 170],
+                outputRange: [16, 8, 0],
+                extrapolate: 'clamp'
+              }),
+              color: '#DCDCDC',
+              opacity: scrollY.interpolate({
+                inputRange:[1, 75, 170],
+                outputRange: [1, 0, 0],
+                extrapolate: 'clamp'
+              }),
+           }}
+          >
+            61999999999
+          </Animated.Text>
+        </View>
       </Animated.View>
       
       <ScrollView
