@@ -361,11 +361,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     marginLeft: 10,
   },
-  logo: {
-    width: 150,
-    height: 200,
-    alignSelf: 'center',
-  },
   botao1: {
     alignSelf: 'center',
     alignItems: 'center',
