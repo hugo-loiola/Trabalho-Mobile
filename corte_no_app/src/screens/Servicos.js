@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   ScrollView,
   Image,
+  Animated,
 } from "react-native";
 
 const tabelaPrecos = [
@@ -46,23 +47,101 @@ const tabelaPrecos = [
     servico : 'massagem facial',
     preco: 20.00
   },
+  {
+    id: '7',
+    servico : 'toalha quente',
+    preco: 14.00
+  },
+  {
+    id: '7',
+    servico : 'toalha quente',
+    preco: 14.00
+  },
+  {
+    id: '7',
+    servico : 'toalha quente',
+    preco: 14.00
+  },
+  {
+    id: '7',
+    servico : 'toalha quente',
+    preco: 14.00
+  },
+  {
+    id: '7',
+    servico : 'toalha quente',
+    preco: 14.00
+  },
+  {
+    id: '7',
+    servico : 'toalha quente',
+    preco: 14.00
+  },
 ]
 
 const Servicos = () => {
+
+  const [scrollY, setScrollY] = useState(new Animated.Value(0));
 
   return (
 
     <ImageBackground source={require('../assets/fundo.jpg')} resizeMode="cover" style={styles.container}>
 
-      <View style={styles.barbeariaCard}>
-        <Image
-          style={styles.barbeariaLogo}
+      <Animated.View style={{
+          flexDirection: 'row',
+          paddingTop: 34,
+          padding: 16,
+          alignItems: 'center',
+          backgroundColor: '#00000099',
+          height: scrollY.interpolate({
+            inputRange:[10, 160, 185],
+            outputRange: [176, 100, 100],
+            extrapolate: 'clamp'
+          }),
+        }}
+      >
+        <Animated.Image
+          style={{
+            height: scrollY.interpolate({
+             inputRange:[0, 60, 120],
+             outputRange: [120, 60, 0] 
+            }),
+            width: scrollY.interpolate({
+              inputRange:[0, 60, 120],
+              outputRange: [120, 60, 0] 
+              }),
+            opacity: scrollY.interpolate({
+              inputRange:[1, 75, 170],
+              outputRange: [1, 0, 0],
+              extrapolate: 'clamp'
+            }),
+            borderRadius: 20,
+          }}
           source={require("../assets/barbeariaExemplo.jpg")}
+          resizeMode='contain'
         />
-        <Text style={styles.barbeariaNome}>Barbearia Exemplo</Text>
-      </View>
+        <Text style={{
+            fontSize: 24,
+            color: '#FF5C00',
+            textAlign: 'center',
+            fontVariant: ['small-caps'],
+            fontWeight: 'normal',
+            flex: 1,
+          }}
+        >
+          Barbearia Exemplo
+        </Text>
+      </Animated.View>
       
-      <ScrollView>
+      <ScrollView
+        scrollEventThrottle={16}
+        onScroll={Animated.event([{
+            nativeEvent: {
+              contentOffset: { y: scrollY }
+            },
+          }],
+          { useNativeDriver: false })}
+        >
 
         <FlatList 
           data={tabelaPrecos}
@@ -95,15 +174,7 @@ const Servicos = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    padding: 16,
   },
-  barbeariaCard: {
-    flexDirection: 'row',
-    marginTop: 40,
-    marginBottom: 20, 
-    alignItems: 'center',
-    backgroundColor: '#00000080',
-    borderRadius: 20},
   barbeariaNome: {
     fontSize: 24,
     color: '#FF5C00',
@@ -116,7 +187,6 @@ const styles = StyleSheet.create({
     width: 120,
     height: 120,
     borderRadius: 20,
-    padding: 10,
   },
   servico: {
     fontSize: 18,
@@ -132,7 +202,8 @@ const styles = StyleSheet.create({
   },
   card: {
     backgroundColor: '#DCDCDC',
-    marginTop: 30,
+    marginTop: 14,
+    margin: 16,
     paddingHorizontal: 10,
     paddingBottom: 10,
     paddingTop: 8,
