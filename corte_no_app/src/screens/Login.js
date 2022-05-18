@@ -96,7 +96,7 @@ const Login = () => {
 
       <KeyboardAvoidingView>
 
-        <ScrollView>
+        <ScrollView style={{justifyContent: "center"}}>
 
           <Animated.Image
             style={{
@@ -195,7 +195,6 @@ const Login = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
     padding: 16,
     alignItems: 'center'
   },
